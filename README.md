@@ -64,21 +64,39 @@ npm run build
 - Resets at midnight (user's timezone)
 
 ## System Architecture
+
+### Flow Diagram
 ```mermaid
-flowchart LR
-	U[User] -- Sign In/Out --> Clerk
-	Clerk -- JWT/Session --> NextJS[Next.js App Router]
-	NextJS -- Middleware Protects Routes --> MW[Clerk Middleware]
-	NextJS -- ORM Queries --> Prisma
-	Prisma -- PostgreSQL --> DB[(Neon Database)]
-	NextJS -- UI Components --> Pages[Dashboard/Agencies/Contacts]
-	Pages -- View Count Tracking --> UCV[UserContactView]
-	CSVs[(CSV: agencies, contacts)] -- Seed Script --> Prisma
+graph LR
+    A[👤 User Browser] -->|1. Login| B[🔐 Clerk Auth]
+    B -->|2. JWT| C[🛡️ Middleware]
+    C -->|3. Protect| D[⚡ Next.js Pages]
+    D -->|4. Query| E[🔷 Prisma ORM]
+    E -->|5. SQL| F[(🗄️ PostgreSQL)]
+    
+    G[📂 CSV Files] -.->|Seed| E
+    H[🚦 Daily Limits] -.->|Enforce| D
+    
+    style A fill:#dbeafe,stroke:#3b82f6
+    style B fill:#fef3c7,stroke:#f59e0b
+    style C fill:#ddd6fe,stroke:#8b5cf6
+    style D fill:#d1fae5,stroke:#10b981
+    style E fill:#e0e7ff,stroke:#6366f1
+    style F fill:#fce7f3,stroke:#ec4899
 ```
 
-Rendered diagram:
+**Architecture Overview:**
+1. **User** authenticates via Clerk
+2. **Clerk** issues JWT tokens
+3. **Middleware** protects routes (/dashboard, /agencies, /contacts)
+4. **Next.js Pages** query data via Prisma
+5. **Prisma ORM** executes SQL on PostgreSQL (Neon)
 
-![System Diagram](./public/diagram.svg)
+**Supporting Systems:**
+- CSV import seeds 922 agencies + 1000 contacts
+- Daily limit tracking enforces 50 views/day/user
+
+For detailed architecture diagram, see: [diagram.svg](./public/diagram.svg)
 
 ## Project Structure
 ```

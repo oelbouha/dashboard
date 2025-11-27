@@ -67,36 +67,28 @@ npm run build
 
 ### Flow Diagram
 ```mermaid
-graph LR
-    A[👤 User Browser] -->|1. Login| B[🔐 Clerk Auth]
-    B -->|2. JWT| C[🛡️ Middleware]
-    C -->|3. Protect| D[⚡ Next.js Pages]
-    D -->|4. Query| E[🔷 Prisma ORM]
-    E -->|5. SQL| F[(🗄️ PostgreSQL)]
+graph TD
+    A[User Browser] -->|Login| B[Clerk Auth]
+    B -->|JWT Token| C[Next.js Middleware]
+    C -->|Route Protection| D[Next.js Pages]
+    D -->|Queries| E[Prisma ORM]
+    E -->|SQL| F[PostgreSQL Neon]
     
-    G[📂 CSV Files] -.->|Seed| E
-    H[🚦 Daily Limits] -.->|Enforce| D
-    
-    style A fill:#dbeafe,stroke:#3b82f6
-    style B fill:#fef3c7,stroke:#f59e0b
-    style C fill:#ddd6fe,stroke:#8b5cf6
-    style D fill:#d1fae5,stroke:#10b981
-    style E fill:#e0e7ff,stroke:#6366f1
-    style F fill:#fce7f3,stroke:#ec4899
+    G[CSV Files] -.->|One-time Seed| E
+    H[Daily Limits 50/day] -.->|Enforce| D
 ```
 
-**Architecture Overview:**
-1. **User** authenticates via Clerk
-2. **Clerk** issues JWT tokens
-3. **Middleware** protects routes (/dashboard, /agencies, /contacts)
-4. **Next.js Pages** query data via Prisma
-5. **Prisma ORM** executes SQL on PostgreSQL (Neon)
+**Architecture Flow:**
+1. **User** authenticates via Clerk (sign-in/sign-up)
+2. **Clerk** issues JWT session tokens
+3. **Middleware** protects routes: `/dashboard`, `/agencies`, `/contacts`
+4. **Next.js Pages** (App Router) query data using Prisma
+5. **Prisma ORM** executes type-safe SQL queries on PostgreSQL
+6. **PostgreSQL** (Neon serverless) stores 922 agencies + 1000 contacts
 
 **Supporting Systems:**
-- CSV import seeds 922 agencies + 1000 contacts
-- Daily limit tracking enforces 50 views/day/user
-
-For detailed architecture diagram, see: [diagram.svg](./public/diagram.svg)
+- **CSV Import**: Initial seed via `scripts/seed.js`
+- **Daily Limits**: UserContactView tracks 50 views/day per user
 
 ## Project Structure
 ```

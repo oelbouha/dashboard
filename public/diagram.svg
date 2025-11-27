@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <style>
+    .box{fill:#ffffff;stroke:#1f2937;stroke-width:1.5;rx:8;ry:8}
+    .title{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:16px;font-weight:600;fill:#111827}
+    .text{font-family:Inter,Segoe UI,Arial,sans-serif;font-size:13px;fill:#374151}
+    .arrow{stroke:#2563eb;stroke-width:2;marker-end:url(#arrow)}
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2563eb" />
+    </marker>
+  </defs>
+
+  <!-- Columns -->
+  <rect x="60" y="60" width="220" height="110" class="box"/>
+  <text x="80" y="90" class="title">User</text>
+  <text x="80" y="115" class="text">Browser / Client</text>
+
+  <rect x="360" y="40" width="240" height="110" class="box"/>
+  <text x="380" y="70" class="title">Clerk</text>
+  <text x="380" y="95" class="text">Authentication & Sessions</text>
+
+  <rect x="360" y="180" width="240" height="140" class="box"/>
+  <text x="380" y="210" class="title">Next.js App Router</text>
+  <text x="380" y="235" class="text">Pages + Middleware</text>
+  <text x="380" y="260" class="text">Protected: /dashboard, /agencies, /contacts</text>
+
+  <rect x="660" y="200" width="240" height="140" class="box"/>
+  <text x="680" y="230" class="title">Prisma ORM</text>
+  <text x="680" y="255" class="text">Models: Agency, Contact,</text>
+  <text x="680" y="280" class="text">UserContactView (daily limit)</text>
+
+  <rect x="660" y="360" width="240" height="110" class="box"/>
+  <text x="680" y="390" class="title">SQLite Database</text>
+  <text x="680" y="415" class="text">file:./dev.db</text>
+
+  <rect x="60" y="240" width="240" height="120" class="box"/>
+  <text x="80" y="270" class="title">CSV Seed Scripts</text>
+  <text x="80" y="295" class="text">agencies_agency_rows.csv</text>
+  <text x="80" y="320" class="text">contacts_contact_rows.csv</text>
+
+  <!-- Arrows -->
+  <line x1="280" y1="115" x2="360" y2="95" class="arrow"/>
+  <line x1="420" y1="150" x2="420" y2="180" class="arrow"/>
+  <line x1="600" y1="250" x2="660" y2="270" class="arrow"/>
+  <line x1="780" y1="340" x2="780" y2="360" class="arrow"/>
+  <line x1="300" y1="300" x2="360" y2="250" class="arrow"/>
+
+  <!-- Notes -->
+  <text x="360" y="340" class="text">Each row rendered counts as 1 daily view</text>
+  <text x="360" y="360" class="text">Limit: 50 views/day/user</text>
+</svg>

@@ -21,18 +21,7 @@ Professional Next.js 16 dashboard with Clerk authentication, Prisma + PostgreSQL
 npm install
 ```
 
-### Environment Setup
-Create `.env.local` with:
-```env
-# Database (Neon PostgreSQL)
-DATABASE_URL="postgresql://user:password@host/db?sslmode=require"
 
-# Clerk Authentication
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="pk_test_..."
-CLERK_SECRET_KEY="sk_test_..."
-NEXT_PUBLIC_CLERK_SIGN_IN_URL="/sign-in"
-NEXT_PUBLIC_CLERK_SIGN_UP_URL="/sign-up"
-```
 
 ### Database Setup
 ```bash
@@ -114,36 +103,11 @@ app/
     └── seed.js           # CSV import script
 ```
 
-## Deployment (Vercel)
 
-### 1. Database Setup
-- Create PostgreSQL database on [Neon](https://neon.tech)
-- Copy connection string (use pooled connection)
+``
 
-### 2. Environment Variables
-Add to Vercel Project Settings → Environment Variables:
-```
-DATABASE_URL=postgresql://...?sslmode=require
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_live_...
-CLERK_SECRET_KEY=sk_live_...
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-```
 
-### 3. Deploy
-```bash
-git push origin main
-# Vercel auto-deploys
-```
 
-### 4. Post-Deploy
-```bash
-# Run migrations on production DB
-npx prisma migrate deploy
-
-# Seed production database
-node scripts/seed.js
-```
 
 ## Tech Stack
 - **Framework**: Next.js 16.0.4 (App Router, Turbopack)
@@ -153,27 +117,9 @@ node scripts/seed.js
 - **Deployment**: Vercel
 - **CSV Parsing**: csv-parser
 
-## Troubleshooting
 
-### Clerk Middleware Error
-Ensure `middleware.ts` exists at project root (not inside `app/app/`).
 
-### Database Connection Issues
-- Use pooled connection string from Neon
-- Ensure `?sslmode=require` parameter is present
-- Check connection limits (5 for free tier)
 
-### Build Errors
-```bash
-# Regenerate Prisma Client
-npx prisma generate
-
-# Check for TypeScript errors
-npm run build
-```
-
-## License
-MIT
 
 
 

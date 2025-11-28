@@ -38,11 +38,7 @@ This project is a production-ready, full-stack web application built with modern
 
 ---
 
-## 🔗 Live Demo & Repository
 
-- **Live Application**: [Your Vercel URL]
-- **GitHub Repository**: [github.com/oelbouha/dashboard](https://github.com/oelbouha/dashboard)
-- **Documentation**: This document
 
 ### Demo Credentials
 For testing purposes:
@@ -647,57 +643,6 @@ postgresql://user:password@ep-name.region.aws.neon.tech/dbname?sslmode=require
 
 ---
 
-## 🔮 Future Enhancements
-
-### Short-term (1-2 weeks)
-1. **Search & Filtering**
-   - Search agencies by name/state
-   - Filter contacts by title/department
-   - URL-based filters (shareable links)
-
-2. **CSV Export**
-   - Download current view as CSV
-   - Premium feature (requires upgrade)
-
-3. **Advanced Pagination**
-   - Page numbers (1, 2, 3...)
-   - Jump to page
-   - Items per page selector
-
-### Medium-term (1 month)
-4. **Analytics Dashboard**
-   - View count over time (charts)
-   - Most viewed contacts
-   - User activity heatmap
-
-5. **Contact Management**
-   - Add/edit/delete contacts (admin)
-   - Import additional CSV files
-   - Bulk operations
-
-6. **Notifications**
-   - Email when nearing limit (45/50)
-   - Daily summary reports
-   - New agency/contact alerts
-
-### Long-term (3+ months)
-7. **Premium Plans**
-   - Stripe integration
-   - Tiered pricing (50/100/unlimited)
-   - Team accounts
-
-8. **API Access**
-   - RESTful API endpoints
-   - API key authentication
-   - Rate limiting
-
-9. **Mobile App**
-   - React Native version
-   - Offline support
-   - Push notifications
-
----
-
 ## 📝 Setup Instructions
 
 ### Local Development
@@ -748,37 +693,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000)
 
-### Production Deployment
 
-See [Deployment Process](#deployment-process) section above.
 
----
 
-## 📞 Contact & Support
 
-**Developer**: Outman El Bouhali  
-**Email**: outmanelbouhali5@gmail.com  
-**GitHub**: [@oelbouha](https://github.com/oelbouha)  
-**LinkedIn**: [Your LinkedIn URL]
-
-### Questions?
-
-For any questions about:
-- Technical implementation
-- Architecture decisions
-- Deployment process
-- Code walkthroughs
-
-Feel free to reach out via email or schedule a call.
-
----
-
-## 📄 License
-
-This project was created as part of a take-home assignment for [Company Name]. All rights reserved.
-
----
-
-**Thank you for reviewing this submission!**
-
-I'm excited about the opportunity to discuss this project in detail and demonstrate my problem-solving approach, coding skills, and ability to deliver production-ready applications.
